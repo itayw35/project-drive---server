@@ -5,7 +5,10 @@ function createFolder(name) {
   if (!isExist(folderName)) {
     fs.mkdirSync(`root/${folderName}`);
   } else {
-    fs.mkdirSync(`root/copy of ${folderName}`);
+    throw {
+      code: 400,
+      message: "file name already exists. please use another name",
+    };
   }
   return { code: 200, message: "ok" };
 }
@@ -50,6 +53,11 @@ function isExist(name) {
 function renameFolder(path, oldName, newName) {
   if (!isExist(`${path}/${oldName}`))
     throw { code: 400, message: `folder does not exist in ${path}` };
+  if (isExist(`${path}/${newName}`))
+    throw {
+      code: 400,
+      message: "file name already exists. please use another name",
+    };
   fs.renameSync(`root/${path}/${oldName}`, `root/${path}/${newName}`);
   return { code: 200, message: "folder was renamed" };
 }
