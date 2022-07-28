@@ -20,10 +20,8 @@ function readFolder(name) {
   } else {
     name = "";
   }
-  console.log(name);
-  console.log("bla");
+
   const folderPath = `root/${name}`;
-  console.log("path " + folderPath);
   const isFile = (fileName) => {
     return fs.lstatSync(fileName.name).isFile();
   };
@@ -45,8 +43,7 @@ function readFolder(name) {
       return "".concat(folderPath, "/", fileName);
     })
     .filter(isFolder);
-  // console.log(files);
-  // console.log(folders);
+
   return { code: 200, message: { files: files, folders: folders } };
 }
 function isExist(name) {

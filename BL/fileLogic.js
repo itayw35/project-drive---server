@@ -11,8 +11,6 @@ function createFile(file, data, path) {
   return { code: 200, message: "file created!" };
 }
 function downLoadFile(name) {
-  // const { fileName } = name;
-  console.log(name);
   const folderPath = `root/${name}`;
   console.log(folderPath);
   const file = fs.readFileSync(folderPath);
