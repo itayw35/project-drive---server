@@ -21,7 +21,7 @@ function readFolder(name) {
     name = "";
   }
   console.log("bla");
-  const folderPath = `root/${name}/`;
+  const folderPath = `root/${name}`;
   console.log("path " + folderPath);
   const isFile = (fileName) => {
     return fs.lstatSync(fileName.name).isFile();
