@@ -43,4 +43,7 @@ router.delete("/delete", async (req, res) => {
     res.status(err.code).send(err.message);
   }
 });
+router.get("/test", (req, res) => {
+  res.send("bla bla");
+});
 module.exports = router;
