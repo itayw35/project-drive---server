@@ -3,9 +3,17 @@ async function isValidExtension(req, res, next) {
     const fileName = req.file ? req.file.originalname : req.body.newName;
     const ext = fileName.slice(fileName.lastIndexOf(".") + 1);
     if (
-      ["pdf", "txt", "doc", "pages", "docx", "jpg", "jpeg", "HEIF"].find(
-        (char) => ext == char
-      )
+      [
+        "pdf",
+        "txt",
+        "doc",
+        "pages",
+        "docx",
+        "jpg",
+        "jpeg",
+        "HEIF",
+        "HEIC",
+      ].find((char) => ext == char)
     ) {
       next();
     } else {
