@@ -11,8 +11,8 @@ async function isValidExtension(req, res, next) {
         "docx",
         "jpg",
         "jpeg",
-        "HEIF",
-        "HEIC",
+        "heif",
+        "heic",
       ].find((char) => ext == char)
     ) {
       next();
