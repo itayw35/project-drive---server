@@ -33,7 +33,7 @@ function readFolder(name) {
   const files = fs
     .readdirSync(folderPath)
     .map((fileName) => {
-      return { name: "".concat(folderPath, fileName) };
+      return { name: "".concat(folderPath, "/", fileName) };
     })
     .filter(isFile);
   files.forEach((file) => {
@@ -42,7 +42,7 @@ function readFolder(name) {
   const folders = fs
     .readdirSync(folderPath)
     .map((fileName) => {
-      return "".concat(folderPath, fileName);
+      return "".concat(folderPath, "/", fileName);
     })
     .filter(isFolder);
   // console.log(files);
