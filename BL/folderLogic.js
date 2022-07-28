@@ -20,7 +20,7 @@ function readFolder(name) {
   } else {
     name = "";
   }
-  console.log(bla);
+  console.log("bla");
   const folderPath = `root/${name}/`;
   console.log("path " + folderPath);
   const isFile = (fileName) => {
