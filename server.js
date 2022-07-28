@@ -7,5 +7,5 @@ app.use(express.json());
 // app.use("/files", require("./fileRouter"));
 app.use("/", require("./Routes/mainRouter"));
 app.listen(PORT, () => {
-  console.log("connection succeeded");
+  console.log("connection succeeded on port " + PORT);
 });
