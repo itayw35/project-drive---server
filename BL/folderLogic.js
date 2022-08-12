@@ -62,7 +62,6 @@ function deleteFolder(name) {
   if (files.length > 0) {
     files.forEach((file) => {
       const f = fs.lstatSync(`root/${name}/${file}`).isFile();
-      console.log(f);
       fs.lstatSync(`root/${name}/${file}`).isFile()
         ? fs.unlinkSync(`root/${name}/${file}`)
         : deleteFolder(`${name}/${file}`);
