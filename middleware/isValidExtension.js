@@ -13,6 +13,7 @@ async function isValidExtension(req, res, next) {
         "jpeg",
         "heif",
         "heic",
+        "m4a"
       ].find((char) => ext == char)
     ) {
       next();
