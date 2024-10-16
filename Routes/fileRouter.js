@@ -49,6 +49,17 @@ router.put("/rename", isValidName, isValidExtension, async (req, res) => {
     res.status(err.code).send(err.message);
   }
 });
+router.put("/copy", async (req, res) => {
+  try {
+    const copiedItem = await fileLogic.copyFile(
+      req.body.path,
+      req.body.newPath
+    );
+    res.status(copiedItem.code).send(copiedItem.message);
+  } catch (err) {
+    res.status(err.code).send(err.message);
+  }
+});
 router.delete("/delete", async (req, res) => {
   try {
     const deletedfile = await fileLogic.deleteFile(req.query.fileName);

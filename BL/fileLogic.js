@@ -12,7 +12,6 @@ function createFile(file, data, path) {
 }
 function downLoadFile(name) {
   const folderPath = `root/${name}`;
-  console.log(folderPath);
   const file = fs.readFileSync(folderPath);
   if (!file) throw { code: 400, message: "file does not exist" };
   return {
@@ -35,5 +34,12 @@ function deleteFile(name) {
   fs.unlinkSync(`root/${name}`);
   return { code: 200, message: "file deleted" };
 }
+function copyFile(path, newPath){
+  if(!path || ! newPath) throw {code : 400, message : "missing details"};
+  if(path != ""){
+    fs.copyFileSync(`root/${path}`, `root/${newPath}`)
+    return {code : 200, message : `item copied to ${newPath}`}
+  }
+}
 
-module.exports = { downLoadFile, createFile, renameFile, deleteFile };
+module.exports = { downLoadFile, createFile, renameFile, deleteFile, copyFile };
