@@ -34,6 +34,17 @@ router.put("/rename", isValidFolderName, async (req, res) => {
     res.status(err.code).send(err.message);
   }
 });
+router.put("/copy", async (req, res) => {
+  try {
+    const copiedItem = await foldeRLogic.copyFolder(
+      req.body.path,
+      req.body.newPath
+    );
+    res.status(copiedItem.code).send(copiedItem.message);
+  } catch (err) {
+    res.status(err.code).send(err.message);
+  }
+});
 router.delete("/delete", async (req, res) => {
   try {
     console.log(req.query.folderName);

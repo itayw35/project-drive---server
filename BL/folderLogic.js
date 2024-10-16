@@ -1,3 +1,4 @@
+const { log } = require("console");
 const fs = require("fs");
 
 function createFolder(name) {
@@ -70,4 +71,11 @@ function deleteFolder(name) {
   fs.rmdirSync(`root/${name}`);
   return { code: 200, message: "folder deleted" };
 }
-module.exports = { createFolder, readFolder, renameFolder, deleteFolder };
+function copyFolder(path, newPath){
+  if(!path || ! newPath) throw {code : 400, message : "missing details"};
+  if(path != ""){
+    fs.cpSync(`root/${path}`, `root/${newPath}`,{recursive : true})
+    return {code : 200, message : `item copied to ${newPath}`}
+  }
+}
+module.exports = { createFolder, readFolder, renameFolder, deleteFolder, copyFolder };
